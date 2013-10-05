@@ -3,7 +3,7 @@
 #include "data.h"
 
 struct data_t *data_create (int size) {
-	struct data_t d = (struct data_t) malloc(sizeof(struct data_t));/*primeiro malloc para reservar memoria*/
+	struct data_t d = (struct data_t) malloc(sizeof(struct data_t));/*primeiro malloc para reservar memoria de dados*/
  
 	 if (d == NULL) {
 	  printf("Memoria insuficiente\n");/*verifica os erros de memoria reservada*/
@@ -11,7 +11,7 @@ struct data_t *data_create (int size) {
 	  }
 
 	d->datasize = size;
-	d->data = malloc(d->datasize);/*segundo malloc para*/
+	d->data = malloc(d->datasize);/*segundo malloc para reservar memoria para a estrutura*/
 
 	if (d->data == NULL) {
 		printf("Memoria insuficiente\n");
