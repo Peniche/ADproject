@@ -11,11 +11,21 @@ struct list_t *list_create();
 * lista.
 * Retorna 0 (OK) ou -1 (erro)
 */
+
+int list_esta vazia (list l){
+  
+ return l->head == NULL;
+ 
+}
+
+
+
 int list_destroy(struct list_t *list);
 /* Adiciona uma entry na lista. Como a lista deve ser ordenada, 
 * a nova entry deve ser colocada no local correto.
 * Retorna 0 (OK) ou -1 (erro)
 */
+
 int list_add(struct list_t *list, struct entry_t *entry);
 /* Elimina da lista um elemento com a chave key. 
 * Retorna 0 (OK) ou -1 (erro)
