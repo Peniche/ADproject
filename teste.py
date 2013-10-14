@@ -123,6 +123,28 @@ print 'A soma dos impares eh', soma
 
 num = float(raw_input('insira um numero'))
 
+inf = min (-1, num)
+
+sup = max (1,num)
+
+eno = 0.0001
+
+tent = (sup+inf) / 2.0
+
+while abs(tent**3 - num)<eno
+      if tent**3 > num:
+          sup = tent
+      else
+          inf = tent
+      tent = (sup + inf) / 2.0
+      print 'A raiz cubica eh proxima de', tent
+      
+      
+      
+-------------------------------------------------------
+
+6.
+     
 
       
       
