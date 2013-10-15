@@ -9,12 +9,31 @@ struct table_t;   /* A definir pelo grupo em table-private.h */
  * linhas(n = módulo da função hash)
  */
 struct table_t *table_create(int n);
-
 /* Eliminar/desalocar toda a memoria
  */
+ struct table_t *table_t = (struct table_t *) malloc(sizeof(struct table_t));
+ 
+  if(l == NULL){
+        printf("ERROR: Out of memory\n");
+        return NULL;
+    }
 void table_destroy(struct table_t *table);
 
-/* Funcao para adicionar um elemento na tabela.
+ if ( table == NULL )
+		printf("Error.");
+
+	while(!table_vazia(list))
+		lista_remover_cabeca(list);
+
+	free(table);
+	free(t);
+
+	if( list == NULL )
+		return 0;
+	else 
+		return -1;
+		
+		/* Funcao para adicionar um elemento na tabela.
  * A função vai copiar a key (string) e os dados num 
  * espaco de memoria alocado por malloc().
  * Se a key ja existe, vai substituir essa entrada 
@@ -58,8 +77,22 @@ int table_size(struct table_t *table);
  */
 char **table_get_keys(struct table_t *table);
 
+if((keys[numMallocs] = strdup(tempNode->entry->key))) {
+                    numMallocs ++;
+                    tempNode = tempNode->prox;
+                }
 /* Desaloca a memoria alocada por table_get_keys()
  */
 void table_free_keys(char **keys);
+ 
+ int i;
+	for(i=0; keys[i] != NULL; i++){
+		free(keys[i]);
+		keys[i] = NULL;
+	}
+
+	free(keys);
+
+
 
 #endif
