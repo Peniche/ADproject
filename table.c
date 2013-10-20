@@ -8,30 +8,52 @@ struct table_t;   /* A definir pelo grupo em table-private.h */
 /* Função para criar/inicializar uma nova tabela hash, com n  
  * linhas(n = módulo da função hash)
  */
-struct table_t *table_create(int n);
-/* Eliminar/desalocar toda a memoria
- */
+ int hash(int n_lists, char *key) {
+  
+  if(n_lists == 0 || key == NULL) // se o numero de listas for zero ou nao houver chaves retorna -1,
+    return -1;                    //senao retorna o comprimento da chave a dividir pelo numero de listas
+  
+  return strlen(key) % n_lists;
+}
+struct table_t *table_create(int n){//table == varias listas
+
+	struct table_t *new = (struct table_t*) malloc(sizeof(struct table_t));~//reserva o espaço memoria
+	
+  int count;//variavel
+
+  if(new != NULL){
+  	new->n_lists = n;
+  	new->lists = (struct list_t**) calloc(n, sizeof(struct list_t*));//reserva e inicia logo a variavel a zero
+
+  	for(count = 0; count < new->n_lists; count++)
+    	new->lists[count] = list_create();
+
+  	return new;}
+  	
+  return NULL;
+}
  struct table_t *table_t = (struct table_t *) malloc(sizeof(struct table_t));
  
   if(l == NULL){
-        printf("ERROR: Out of memory\n");
+        printf("ERROR: Out of memory\n");//erros de reserva da memoria
         return NULL;
     }
+    //falta criar o n_lists e o novo
+}
 void table_destroy(struct table_t *table);
 
- if ( table == NULL )
-		printf("Error.");
+ int count;
 
-	while(!table_vazia(list))
-		lista_remover_cabeca(list);
+  if(table != NULL) {
 
-	free(table);
-	free(t);
+    for(count = 0; count < table->n_lists; count++)
+      if(table->lists[count] != NULL)   
+        list_destroy(table->lists[count]);
 
-	if( list == NULL )
-		return 0;
-	else 
-		return -1;
+    free(table->lists);
+    free(table);  
+  }
+
 		
 		/* Funcao para adicionar um elemento na tabela.
  * A função vai copiar a key (string) e os dados num 
@@ -40,7 +62,28 @@ void table_destroy(struct table_t *table);
  * pelos novos dados.
  * Devolve 0 (ok) ou -1 (out of memory)
  */
-int table_put(struct table_t *table, char *key, struct data_t *data);
+int table_put(struct table_t *table, char *key, struct data_t *data){
+	  
+if( table == NULL || key == NULL || data == NULL )
+    return -1;
+
+  struct data_t *nova = table_get(table, key);
+  int indice = hash(table->n_lists, key);
+
+  if(indice == -1)
+    return -1;
+
+  if(nova == NULL)
+    list_add(table->lists[indice], entry_create(strdup(key), data_dup(data)));
+  else {
+    data_destroy(nova);
+    struct entry_t *entry = list_get(table->lists[indice], key);
+    data_destroy(entry->value);
+    entry->value = data_dup(data);
+  }
+
+  return 0;
+}
 
 /* Funcao para adicionar um elemento na tabela caso a chave
  * associada ao elemento nao exista na tabela. Caso a chave
