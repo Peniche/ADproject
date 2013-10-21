@@ -143,17 +143,110 @@ while abs(tent**3 - num)<eno
       
 -------------------------------------------------------
 
-6.
-     
+//folha 5
 
+1.
+
+def succ (num):
+    """ requer que num seja um int bastando apenas fazer succ (num inteiro) tipo succ(2)
+        devolve um int que corresponde ao incremento de num em uma unidade """
+    return num + 1
+
+     """ na altura da compilação é necessario chamar a função fazendo
+         succ(10), pode-se consultar os comentarios das funçoes na consola atravez
+         do comando help(succ)"""
+         
+         
+------------------------------------------------------------------
+
+
+2.
+
+def maior2 (num1, num2):
+    """requer que num seja um int
+       devolve um int que corresponde
+       ao maior entre os dois"""
+       if num1<num2:
+        maior2 = num2
+       else num1>num2:
+        maior2 = num1
+    return maior2
+
+
+// para acabar a função escreve se maior2 ( 10,20)
+---------------------------------------------------------------
+
+3.
+
+def maior3 (num1, num2, num3):
+    """requer que num seja um int
+       devolve um int que corresponde
+       ao maior entre os tres"""
+       if num1<num2<num3:
+        maior = num3
+       elif num2>num1>num3:
+        maior = num2
+       else
+        maior = num1
+    return maior
+    ------ou------
+    maior = maior2 (num1,num2)
+    return mior2 (maior, num3)
+    ------ou------
+    return maior2 (num1,num2),num3)
+      
+// para acabar/executar a função escreve-se maior(10,20,15)    
+     
+----------------------------------------------------------------------
+
+4.      
+      
+ def direita (num)
+    """ requer que  num seja inte
+        devolve um int correspondente
+        a unidade mais a direita"""
+        while num % 10 :
+        direita = num
+        return num
       
       
-      
-      
-      
-      
-      
-      
+------------------------------------------------------------------------
+
+5. 
+
+ def elimina (num)
+    """requer que num seja int
+       devolve um int correspondente
+       mas sem as unidades"""
+       return num/10
+-----------------------------------------------------------------
+
+6.
+
+ def aumenta (num)
+    """aumenta o numero int"""
+    return num * 10
+--------------------------------------------------------------------
+
+7.
+
+def ecapicua (num)
+    """ requer que o num seja inteiro
+        e se a escrita normal for igual a
+        escrita inversa entao return true or false"""
+        original = num
+        while num > 0
+           digito = direita (num)
+           invertido = digito
+           num = elimina (num)
+           
+        return original == invertido
+
+            
+        
+        
+       
+       
       
       
       
