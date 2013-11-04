@@ -241,13 +241,76 @@ def ecapicua (num)
            num = elimina (num)
            
         return original == invertido
+        
+        
+--------------------------------------------------------------------------------
+
+folha 6.
+ex 4.
+     
+
+ex 5.
+
+    potencia = int (raw_input('introduza a potencia'))
+    num = int (raw_input('introduza o numero'))
+
+def potencia int(base, exp):
+    """requer que base seja um numero
+        requer que exp seja um int
+        devolve um numero correspondente a base 
+        levantado a exp"""
+return potencia(base,exp) if exp >=0 else 1.0/potencia(base, -exp)
+// expressao condicional
+
+---------------------------------------------------------------------------------------
+6.
+num =int (raw_input('insira numero'))
+
+def fib (num)
+   """requer que num seja um int
+       e vai retornar n-ésimo numero da 
+       funçao que seja inteiro positivo"""
+ if num = 0 or num = 1:
+     return 1
+else
+    return  (num -1) + (num-2)
 
             
-        
-        
-       
-       
-      
+--------------------------------------------------------------------
+7.
+ Word = String (raw_input('introduza o texto'))
+def tamanho (Word):
+"""recebe uma str e retorna
+    o seu comprimento"""
+if Word == ' ':
+    return 0
+else
+    return len (Word)
+
+......................alternativa..........................
+
+Word = String (raw_input('introduza o texto'))
+def tamanho (Word):
+""" recebe uma str e retorna o seu comprimento"""
+if Word == ' ' :
+    return 0
+else
+    return Word [1:] +1
+-------------------------------------------------------------------
+8.
+
+def eprefixo (s1, s2):
+"""recebe uma str e verifica se faz parte de outra str
+    retorna true se s1 eh prefixo de s2, false se contrario"""
+
+if s1 == ' ' :
+   return true
+elif s2 == ' ' :       
+   return false
+elif s1[0] != s2[0]:    
+    return false
+else
+    return eprefixo (s1[1:], s2[1:]) and s1[0] == s2[0]
       
       
       
